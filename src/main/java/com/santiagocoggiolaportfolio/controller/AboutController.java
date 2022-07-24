@@ -35,7 +35,7 @@ public class AboutController {
         return interAbout.getAbout();
     }
     
-    @PostMapping ("/database/admin/{token}/about/create")
+    @PostMapping ("/database/admin/about/create/{token}/")
     public String createAbout(@RequestBody About about, @PathVariable String token){
         if(interLogin.findUserByToken(token) != null){
             interAbout.saveAbout(about);

@@ -35,7 +35,7 @@ public class EducationController {
         return interEducation.getEducation();
     }
     
-    @PostMapping ("/database/admin/{token}/education/create")
+    @PostMapping ("/database/admin/education/create/{token}/")
     public String createEducation(@RequestBody Education edu, 
                                   @PathVariable String token){
         if(interLogin.findUserByToken(token) != null){ 
@@ -47,7 +47,7 @@ public class EducationController {
         
     }
     
-    @DeleteMapping ("/database/admin/{token}/education/delete/{id}")
+    @DeleteMapping ("/database/admin/education/delete/{id}/{token}")
     public String deleteEducation(@PathVariable Long id, 
                                   @PathVariable String token){
         if(interLogin.findUserByToken(token) != null){ 
@@ -58,7 +58,7 @@ public class EducationController {
         }
     }
     
-    @PutMapping ("/database/admin/{token}/education/editar/{id}")
+    @PutMapping ("/database/admin/education/editar/{id}/{token}")
     public Education editEducation(@PathVariable Long id,
                                    @PathVariable String token,
                                    @RequestParam ("logoPath") String newPath,

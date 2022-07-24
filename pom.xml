@@ -35,7 +35,8 @@
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
-			<scope>runtime</scope>
+		 <version>2.1.214</version>
+		 <type>jar</type>
 		</dependency>
 		<dependency>
 			<groupId>mysql</groupId>
@@ -62,6 +63,14 @@
 			<artifactId>httpclient</artifactId>
 			<scope>test</scope>
 		</dependency>
+                <dependency>
+                        <groupId>org.json</groupId>
+                        <artifactId>json</artifactId>
+                        <version>20180130</version>
+                        <type>jar</type>
+                </dependency>
+
+               
 	</dependencies>
 
 	<build>
