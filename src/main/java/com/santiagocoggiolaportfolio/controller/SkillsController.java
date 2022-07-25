@@ -34,7 +34,7 @@ public class SkillsController {
         return interSkills.getSkills();
     }
     
-    @PostMapping ("/database/admin/{token}/skills/create")
+    @PostMapping ("/database/admin/skills/create/{token}")
     public String createSkills(@RequestBody Skills skl, 
                                   @PathVariable String token){
         if(interLogin.findUserByToken(token) != null){ 
@@ -46,7 +46,7 @@ public class SkillsController {
         
     }
     
-    @DeleteMapping ("/database/admin/{token}/skills/delete/{id}")
+    @DeleteMapping ("/database/admin/skills/delete/{id}/{token}")
     public String deleteSkills(@PathVariable Long id, 
                                @PathVariable String token){
         if(interLogin.findUserByToken(token) != null){ 
@@ -57,7 +57,7 @@ public class SkillsController {
         }
     }
     
-    @PutMapping ("/database/admin/{token}/skills/editar/{id}")
+    @PutMapping ("/database/admin/skills/editar/{id}/{token}")
     public Skills editSkills(@PathVariable Long id,
                              @PathVariable String token,
                              @RequestParam ("name") String newName,

@@ -35,7 +35,7 @@ public class BannerController {
         return interBanner.getBanner();
     }
     
-    @PostMapping ("/database/admin/{token}/banner/create")
+    @PostMapping ("/database/admin/banner/create/{token}")
     public String createBanner(@RequestBody Banner banner, 
                                @PathVariable String token){
         if(interLogin.findUserByToken(token) != null){ 
@@ -46,7 +46,7 @@ public class BannerController {
         }
     }
     
-    @DeleteMapping ("/database/admin/{token}/banner/delete/{id}")
+    @DeleteMapping ("/database/admin/banner/delete/{id}/{token}")
     public String deleteBanner(@PathVariable Long id, 
                                @PathVariable String token){
         if(interLogin.findUserByToken(token) != null){ 
@@ -57,11 +57,10 @@ public class BannerController {
         }
     }
     
-    @PutMapping ("/database/admin/{token}/banner/editar/{id}")
+    @PutMapping ("/database/admin/banner/editar/{id}/{token}")
     public Banner editBanner (@PathVariable Long id,
                               @PathVariable String token,
                               @RequestParam ("imgPath") String newPath,
-                              @RequestParam ("text") String newText,
                               @RequestParam ("isActive") Boolean newActive){
         
         if(interLogin.findUserByToken(token) != null){    
