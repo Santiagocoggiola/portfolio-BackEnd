@@ -33,7 +33,7 @@ public class ProjectsController {
         return interProject.getProjects();
     }
     
-    @PostMapping ("/database/admin/{token}/projects/create")
+    @PostMapping ("/database/admin/projects/create/{token}")
     public String createProject(@RequestBody Projects pro, 
                                   @PathVariable String token){
         if(interLogin.findUserByToken(token) != null){ 
@@ -45,7 +45,7 @@ public class ProjectsController {
         
     }
     
-    @DeleteMapping ("/database/admin/{token}/projects/delete/{id}")
+    @DeleteMapping ("/database/admin/projects/delete/{id}/{token}")
     public String deleteProject(@PathVariable Long id, 
                                 @PathVariable String token){
         if(interLogin.findUserByToken(token) != null){ 
@@ -56,7 +56,7 @@ public class ProjectsController {
         }
     }
     
-    @PutMapping ("/database/admin/{token}/projects/editar/{id}")
+    @PutMapping ("/database/admin/projects/editar/{id}/{token}")
     public Projects editProject(@PathVariable Long id,
                                 @PathVariable String token,
                                 @RequestParam ("name") String newName,

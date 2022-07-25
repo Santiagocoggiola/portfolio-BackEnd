@@ -36,7 +36,7 @@ public class TecnologiesController {
         return interTecnologies.getTecnologies();
     }
     
-    @PostMapping ("/database/admin/{token}/tecnologies/create")
+    @PostMapping ("/database/admin/tecnologies/create/{token}")
     public String createTecnologies(@RequestBody Tecnologies tec, 
                                @PathVariable String token){
         if(interLogin.findUserByToken(token) != null){ 
@@ -47,7 +47,7 @@ public class TecnologiesController {
         }
     }
     
-    @DeleteMapping ("/database/admin/{token}/tecnologies/delete/{id}")
+    @DeleteMapping ("/database/admin/tecnologies/delete/{id}/{token}")
     public String deleteTecnologies(@PathVariable Long id, 
                                @PathVariable String token){
         if(interLogin.findUserByToken(token) != null){ 
@@ -58,7 +58,7 @@ public class TecnologiesController {
         }
     }
     
-    @PutMapping ("/database/admin/{token}/tecnologies/editar/{id}")
+    @PutMapping ("/database/admin/tecnologies/editar/{id}/{token}")
     public Tecnologies editTecnologies( @PathVariable Long id,
                                         @PathVariable String token,
                                         @RequestParam ("logoPath1") String newLogoPath1,

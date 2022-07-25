@@ -34,7 +34,7 @@ public class ExperienceController {
         return interExperience.getExperience();
     }
     
-    @PostMapping ("/database/admin/{token}/experience/create")
+    @PostMapping ("/database/admin/experience/create/{token}/")
     public String createExperience(@RequestBody Experience exp,
                                    @PathVariable String token){
         if(interLogin.findUserByToken(token) != null){ 
@@ -45,7 +45,7 @@ public class ExperienceController {
         }
     }
     
-    @DeleteMapping ("/database/admin/{token}/experience/delete/{id}")
+    @DeleteMapping ("/database/admin/experience/delete/{id}/{token}")
     public String deleteExperience(@PathVariable Long id,
                                    @PathVariable String token){
         if(interLogin.findUserByToken(token) != null){ 
@@ -57,7 +57,7 @@ public class ExperienceController {
         
     }
     
-    @PutMapping ("/database/admin/{token}/experience/editar/{id}")
+    @PutMapping ("/database/admin/experience/editar/{id}/{token}")
     public Experience editExperience(@PathVariable Long id,
                                      @PathVariable String token,
                                      @RequestParam ("logoPath") String newPath,
